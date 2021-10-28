@@ -1,0 +1,216 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- About Section Start -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="img-thumb wow fadeInLeft" data-wow-delay="0.3s">
+              <img class="img-fluid" src="{{ aboutme_setting.image.url }}" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="profile-wrapper wow fadeInRight" data-wow-delay="0.3s">
+              <h3>{{ aboutme_setting.text1 }}</h3>
+              <p>{{ aboutme_setting.text2 }}</p>
+              <div class="about-profile">
+                <ul class="admin-profile">
+                  <li><span class="pro-title">اسمم</span> <span class="pro-detail">{{ aboutme_setting.fullname }}</span></li>
+                  <li><span class="pro-title">سنم</span> <span class="pro-detail">{{ aboutme_setting.age }}</span></li>
+                  <li><span class="pro-title"> تجربه ها </span> <span class="pro-detail">{{ aboutme_setting.experience }}</span></li>
+                  <li><span class="pro-title"> کشورم </span> <span class="pro-detail">{{ aboutme_setting.country }}</span></li>
+                  <li><span class="pro-title">محل زندگیم </span> <span class="pro-detail">{{ aboutme_setting.city }}</span></li>
+                  <li><span class="pro-title"> ایمیلم </span> <span class="pro-detail">{{ aboutme_setting.email }}</span></li>
+                </ul>
+              </div>
+              <!--
+              <a href="#" class="btn btn-common"><i class="icon-paper-clip"></i>  دانلود رزومه</a>
+              <a href="#" class="btn btn-danger"><i class="icon-speech"></i> تماس با من</a>
+              -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Section End -->
+
+    <!-- Services Section Start -->
+    <section id="skill" class="services section-padding">
+      <h2 class="section-title wow flipInX" data-wow-delay="0.4s">این مهارت‌ها رو دارم :)</h2>
+      <div class="container">
+        <div class="row">
+
+          <!-- Services item -->
+            {% for skill_setting in skill_setting %}
+          <div class="col-md-6 col-lg-3 col-xs-12">
+            <div class="services-item wow fadeInDown" data-wow-delay="0.3s">
+              <div class="icon">
+                <img class="fa-image" src="{{ skill_setting.svg.url }}" style="width: {{ skill_setting.width }}{{ skill_setting.width_px_percent }}; height: {{ skill_setting.height }}{{ skill_setting.height_px_percent }}">
+              </div>
+              <div class="services-content">
+                <h3><a href="#">{{ skill_setting.title }}</a></h3>
+                <p>{{ skill_setting.description }}</p>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+          <!-- Services item -->
+
+        </div>
+
+      </div>
+    </section>
+    <!-- Services Section End -->
+
+    <!-- Resume Section Start -->
+    <div id="resume" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="education wow fadeInRight" data-wow-delay="0.3s">
+              <ul class="timeline">
+                <li>
+                  <i class="icon-graduation"></i>
+                  <h2 class="timelin-title">تحصیلات</h2>
+                </li>
+                  {% for education_setting in education_setting %}
+                <li>
+                  <div class="content-text">
+                    <h3 class="line-title">{{ education_setting.title }}</h3>
+                    <span>{{ education_setting.date }}</span>
+                    <p class="line-text">{{ education_setting.description }}</p>
+                  </div>
+                </li>
+                {% endfor %}
+
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="experience wow fadeInRight" data-wow-delay="0.6s">
+              <ul class="timeline">
+                <li>
+                  <i class="icon-briefcase"></i>
+                  <h2 class="timelin-title">تجربه‌ها</h2>
+                </li>
+                  {% for experience_setting in experience_setting %}
+                <li>
+                  <div class="content-text">
+                    <h3 class="line-title">{{ experience_setting.title }}</h3>
+                    <span>{{ experience_setting.date }}</span>
+                    <p class="line-text">{{ experience_setting.description }}</p>
+                  </div>
+                </li>
+                    {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Resume Section End -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolios" class="section-padding">
+      <!-- Container Starts -->
+      <div class="container">
+        <h2 class="section-title wow flipInX" data-wow-delay="0.4s">پروژه‌هایی که انجام دادم :)</h2>
+        <div class="row">
+
+
+          <!-- Portfolio Recent Projects -->
+            {% for portfolio_setting in portfolio_setting %}
+          <div class="col-md-6 col-lg-3 col-xs-12">
+            <div class="services-item wow fadeInDown" data-wow-delay="0.3s">
+              <div class="icon">
+                <img class="fa-image" src="{{ portfolio_setting.svg.url }}" style="width: {{ portfolio_setting.width }}{{ portfolio_setting.width_px_percent }}; height: {{ portfolio_setting.height }}{{ portfolio_setting.height_px_percent }}">
+              </div>
+              <div class="services-content">
+                <h3><a href="#">{{ portfolio_setting.title }}</a></h3>
+                <p>{{ portfolio_setting.description }}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+      <!-- Container Ends -->
+    </section>
+    <!-- Portfolio Section Ends -->
+
+    <!-- Contact Section Start -->
+    <section id="contact" class="section-padding">
+      <div class="contact-form">
+        <div class="container">
+          <div class="row contact-form-area wow fadeInUp" data-wow-delay="0.4s">
+            <div class="col-md-6 col-lg-6 col-sm-12">
+              <div class="contact-block">
+                <h2>از طریق فرم زیر هم می‌تونی با من تماس بگیری :)</h2>
+                <form id="contactForm" action="" method="post">
+                    {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        {{ contactme_setting.fullname }}
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        {{ contactme_setting.email }}
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    </div>
+                     <div class="col-md-12">
+                      <div class="form-group">
+                        {{ contactme_setting.subject }}
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        {{ contactme_setting.text }}
+                        <div class="help-block with-errors"></div>
+                      </div>
+                      <div class="submit-button">
+                        <button class="btn btn-common" id="submit" type="submit">ارسال پیام</button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-sm-12">
+              <div class="footer-right-area wow fadeIn">
+                <h2>معمولا اینجا می‌تونی پیدام کنی :)</h2>
+                <div class="footer-right-contact">
+                  <div class="single-contact">
+                    <div class="contact-icon">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                    <p>تهران، میدان آزادی، اتوبان لشگری، بعد از ایستگاه مترو بیمه، پلاک۳۱، کارخانه نوآوری آزادی</p>
+                  </div>
+                  <div class="single-contact">
+                    <div class="contact-icon">
+                      <i class="fa fa-envelope"></i>
+                    </div>
+                    <p><a href="mailto:info@ivahid.com">dehghanamirhossein1@gmail.com</a></p>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section End -->
+
+{% endblock %}

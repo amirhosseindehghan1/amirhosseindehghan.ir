@@ -1,0 +1,38 @@
+{% load static %}
+{% load render_partial %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>امیرحسین دهقان</title>
+
+    {% include 'shared/_HeaderRefrences.html' %}
+    {% block header_ref %}{% endblock %}
+
+
+  </head>
+  <body>
+
+
+<!-- Header Area wrapper Starts -->
+    {% render_partial 'header' %}
+<!-- Header Area wrapper End -->
+
+    {% block content %}{% endblock %}
+
+<!-- Footer Section Start -->
+    {% render_partial 'footer' %}
+<!-- Footer Section End -->
+    <!-- Go to Top Link -->
+    <a href="#" class="back-to-top">
+      <i class="icon-arrow-up"></i>
+    </a>
+
+    {% include 'shared/_FooterRefrences.html' %}
+    {% block footer_ref %}{% endblock %}
+  </body>
+</html>
